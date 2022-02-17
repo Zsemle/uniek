@@ -12,7 +12,11 @@ The requirements were:
 This project was built using node v16.13.0. It may run on other versions.
 
 ## Launch project
-Start the API server with:
+Install dependencies with:
+```
+npm ci
+```
+Then start the API server with:
 ```
 npm run api
 ```
