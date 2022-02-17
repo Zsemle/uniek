@@ -1,0 +1,15 @@
+.plan-page {
+  background-color: #fdfdfd;
+  padding: 1rem;
+}
+.plan-page--title {
+  margin-bottom: 0;
+}
+.plan-page--created-by {
+  margin: 0;
+  color: grey;
+}
+.plan-page--back-button {
+  display: flex;
+  align-items: center;
+}

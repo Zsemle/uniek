@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Axios, { AxiosError, AxiosResponse } from 'axios';
 import './PlanPage.css';
+import { CircularProgress, Link } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Category, Note, Plan } from '../../types/uniekModels';
+import PlanDetails from '../PlanDetails/PlanDetails';
 
 const T: { [key: string]: string } = {
   error: 'an error has occured',
-  loading: 'data is loading now',
-  planNameLabel: 'plan name:',
   userLabel: 'created by:',
+  backToPlansList: 'Back to my plans',
 };
 
 const PlanPage:React.FC = ():JSX.Element => {
@@ -38,20 +40,32 @@ const PlanPage:React.FC = ():JSX.Element => {
       );
   }, []);
 
+  if (loading) {
+    return <CircularProgress />;
+  }
   return (
     <div className="plan-page">
+      <Link
+        className="plan-page--back-button"
+        href="http://localhost:3000/"
+      >
+        <ArrowBackIcon />
+        {T.backToPlansList}
+      </Link>
       {error && T.error}
-      {loading && T.loading}
-      <p>
-        {T.planNameLabel}
-        {plan?.name}
-      </p>
-      <p>
-        {T.userLabel}
-        {plan?.userCreated}
-      </p>
-      {!!notes}
-      {!!categories}
+      <div className="plan-page--title-box">
+        <h1 className="plan-page--title">
+          {plan?.name}
+        </h1>
+        <p className="plan-page--created-by">
+          {T.userLabel}
+          {plan?.userCreated}
+        </p>
+      </div>
+      <PlanDetails
+        notes={notes}
+        categories={categories}
+      />
     </div>
   );
 };
