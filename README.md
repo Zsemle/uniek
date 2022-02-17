@@ -8,6 +8,9 @@ The requirements were:
 - Any subject can have notes, these should be displayed with the subject in order of creation
 - Archived subjects (categories) and related notes are not visible
 
+## Requirements
+This project was built using node v16.13.0. It may run on other versions.
+
 ## Launch project
 Start the API server with:
 ```
