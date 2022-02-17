@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the header component renders the component 1`] = `
+<ForwardRef(Box)
+  sx={
+    Object {
+      "flexGrow": 1,
+    }
+  }
+>
+  <ForwardRef(AppBar)
+    position="static"
+  >
+    <ForwardRef(Toolbar)>
+      <ForwardRef(IconButton)
+        aria-label="menu"
+        color="inherit"
+        edge="start"
+        size="large"
+        sx={
+          Object {
+            "mr": 2,
+          }
+        }
+      >
+        <Memo(ForwardRef(MenuIcon)) />
+      </ForwardRef(IconButton)>
+      <ForwardRef(Typography)
+        component="div"
+        sx={
+          Object {
+            "flexGrow": 1,
+          }
+        }
+        variant="h6"
+      >
+        Plans
+      </ForwardRef(Typography)>
+      <div>
+        <ForwardRef(IconButton)
+          aria-controls="menu-appbar"
+          aria-haspopup="true"
+          aria-label="account of current user"
+          color="inherit"
+          onClick={[Function]}
+          size="large"
+        >
+          <Memo(ForwardRef(AccountCircleIcon)) />
+        </ForwardRef(IconButton)>
+        <ForwardRef(Menu)
+          anchorEl={null}
+          anchorOrigin={
+            Object {
+              "horizontal": "right",
+              "vertical": "top",
+            }
+          }
+          id="menu-appbar"
+          keepMounted={true}
+          onClose={[Function]}
+          open={false}
+          transformOrigin={
+            Object {
+              "horizontal": "right",
+              "vertical": "top",
+            }
+          }
+        >
+          <ForwardRef(MenuItem)
+            onClick={[Function]}
+          >
+            Profile
+          </ForwardRef(MenuItem)>
+          <ForwardRef(MenuItem)
+            onClick={[Function]}
+          >
+            My account
+          </ForwardRef(MenuItem)>
+        </ForwardRef(Menu)>
+      </div>
+    </ForwardRef(Toolbar)>
+  </ForwardRef(AppBar)>
+</ForwardRef(Box)>
+`;

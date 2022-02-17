@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the plan details component renders the component when the user has no categories 1`] = `
+<div
+  className="plan-details"
+>
+  Your subjects will be displayed here, once you have added them to your plan.
+</div>
+`;
+
+exports[`the plan details component renders the component with a lot of mock data 1`] = `
+<div
+  className="plan-details"
+>
+  <h2>
+    Your subjects:
+  </h2>
+  <ForwardRef(Accordion)
+    key="category-7"
+  >
+    <ForwardRef(AccordionSummary)
+      aria-controls="panel1-7-content"
+      expandIcon={<Memo />}
+      id="panel1-7-header"
+    >
+      <ForwardRef(Typography)>
+        Individual
+      </ForwardRef(Typography)>
+    </ForwardRef(AccordionSummary)>
+    <ForwardRef(AccordionDetails)>
+      <h4>
+        Notes:
+      </h4>
+      <ul>
+        <li
+          key="note-107"
+        >
+          ...
+        </li>
+      </ul>
+      <h4>
+        Subjects within:
+      </h4>
+    </ForwardRef(AccordionDetails)>
+  </ForwardRef(Accordion)>
+  <ForwardRef(Accordion)
+    key="category-4"
+  >
+    <ForwardRef(AccordionSummary)
+      aria-controls="panel1-4-content"
+      expandIcon={<Memo />}
+      id="panel1-4-header"
+    >
+      <ForwardRef(Typography)>
+        Language
+      </ForwardRef(Typography)>
+    </ForwardRef(AccordionSummary)>
+    <ForwardRef(AccordionDetails)>
+      <h4>
+        Notes:
+      </h4>
+      <ul />
+      <h4>
+        Subjects within:
+      </h4>
+      <ForwardRef(Accordion)
+        key="category-5"
+        sx={
+          Object {
+            "backgroundColor": "#f1f1f1",
+          }
+        }
+      >
+        <ForwardRef(AccordionSummary)
+          aria-controls="panel1-5-content"
+          expandIcon={<Memo />}
+          id="panel1-5-header"
+        >
+          <ForwardRef(Typography)>
+            Reading
+          </ForwardRef(Typography)>
+        </ForwardRef(AccordionSummary)>
+        <ForwardRef(AccordionDetails)>
+          <h4>
+            Notes:
+          </h4>
+          <ul>
+            <li
+              key="note-104"
+            >
+              Pupils should be able read N words in minute
+            </li>
+          </ul>
+        </ForwardRef(AccordionDetails)>
+      </ForwardRef(Accordion)>
+      <ForwardRef(Accordion)
+        key="category-6"
+        sx={
+          Object {
+            "backgroundColor": "#f1f1f1",
+          }
+        }
+      >
+        <ForwardRef(AccordionSummary)
+          aria-controls="panel1-6-content"
+          expandIcon={<Memo />}
+          id="panel1-6-header"
+        >
+          <ForwardRef(Typography)>
+            Spelling
+          </ForwardRef(Typography)>
+        </ForwardRef(AccordionSummary)>
+        <ForwardRef(AccordionDetails)>
+          <h4>
+            Notes:
+          </h4>
+          <ul>
+            <li
+              key="note-106"
+            >
+              In middle of year new handbook should be used.
+            </li>
+            <li
+              key="note-105"
+            >
+              Goal for current year: no typos in simple words
+            </li>
+            <li
+              key="note-107"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </li>
+          </ul>
+        </ForwardRef(AccordionDetails)>
+      </ForwardRef(Accordion)>
+    </ForwardRef(AccordionDetails)>
+  </ForwardRef(Accordion)>
+  <ForwardRef(Accordion)
+    key="category-1"
+  >
+    <ForwardRef(AccordionSummary)
+      aria-controls="panel1-1-content"
+      expandIcon={<Memo />}
+      id="panel1-1-header"
+    >
+      <ForwardRef(Typography)>
+        Mathematics
+      </ForwardRef(Typography)>
+    </ForwardRef(AccordionSummary)>
+    <ForwardRef(AccordionDetails)>
+      <h4>
+        Notes:
+      </h4>
+      <ul />
+      <h4>
+        Subjects within:
+      </h4>
+      <ForwardRef(Accordion)
+        key="category-3"
+        sx={
+          Object {
+            "backgroundColor": "#f1f1f1",
+          }
+        }
+      >
+        <ForwardRef(AccordionSummary)
+          aria-controls="panel1-3-content"
+          expandIcon={<Memo />}
+          id="panel1-3-header"
+        >
+          <ForwardRef(Typography)>
+            Division
+          </ForwardRef(Typography)>
+        </ForwardRef(AccordionSummary)>
+        <ForwardRef(AccordionDetails)>
+          <h4>
+            Notes:
+          </h4>
+          <ul>
+            <li
+              key="note-102"
+            >
+              Pupils can do operations with fractions.
+            </li>
+            <li
+              key="note-101"
+            >
+              Pupils
+            </li>
+          </ul>
+        </ForwardRef(AccordionDetails)>
+      </ForwardRef(Accordion)>
+      <ForwardRef(Accordion)
+        key="category-2"
+        sx={
+          Object {
+            "backgroundColor": "#f1f1f1",
+          }
+        }
+      >
+        <ForwardRef(AccordionSummary)
+          aria-controls="panel1-2-content"
+          expandIcon={<Memo />}
+          id="panel1-2-header"
+        >
+          <ForwardRef(Typography)>
+            Multiplication
+          </ForwardRef(Typography)>
+        </ForwardRef(AccordionSummary)>
+        <ForwardRef(AccordionDetails)>
+          <h4>
+            Notes:
+          </h4>
+          <ul>
+            <li
+              key="note-103"
+            >
+              Pupils should remember basic multiplication table.
+            </li>
+          </ul>
+        </ForwardRef(AccordionDetails)>
+      </ForwardRef(Accordion)>
+    </ForwardRef(AccordionDetails)>
+  </ForwardRef(Accordion)>
+  <ForwardRef(Accordion)
+    key="category-8"
+  >
+    <ForwardRef(AccordionSummary)
+      aria-controls="panel1-8-content"
+      expandIcon={<Memo />}
+      id="panel1-8-header"
+    >
+      <ForwardRef(Typography)>
+        Social
+      </ForwardRef(Typography)>
+    </ForwardRef(AccordionSummary)>
+    <ForwardRef(AccordionDetails)>
+      <h4>
+        Notes:
+      </h4>
+      <ul />
+      <h4>
+        Subjects within:
+      </h4>
+    </ForwardRef(AccordionDetails)>
+  </ForwardRef(Accordion)>
+</div>
+`;

@@ -7,7 +7,7 @@ import { Category, Note, Plan } from '../../types/uniekModels';
 import PlanDetails from '../PlanDetails/PlanDetails';
 
 const T: { [key: string]: string } = {
-  error: 'an error has occured',
+  error: 'An error has occured while loading the content.',
   userLabel: 'created by:',
   backToPlansList: 'Back to my plans',
 };
@@ -50,6 +50,11 @@ const PlanPage:React.FC = ():JSX.Element => {
   if (loading) {
     return <CircularProgress />;
   }
+
+  if (error) {
+    return <div className="plan-page">{error && T.error}</div>;
+  }
+
   return (
     <div className="plan-page">
       <Link
@@ -59,7 +64,6 @@ const PlanPage:React.FC = ():JSX.Element => {
         <ArrowBackIcon />
         {T.backToPlansList}
       </Link>
-      {error && T.error}
       <div className="plan-page--title-box">
         <h1 className="plan-page--title">
           {plan?.name}

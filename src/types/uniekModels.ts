@@ -64,7 +64,7 @@ export class Category {
 
   name: string;
 
-  parentNoteCategoryId: number;
+  parentNoteCategoryId: number | null;
 
   groupPlanId: number;
 

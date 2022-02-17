@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the app layout component renders the component 1`] = `
+<Fragment>
+  <CssBaseline />
+  <div
+    className="uniek-app"
+  >
+    <AppHeader />
+    <PlanPage />
+  </div>
+</Fragment>
+`;

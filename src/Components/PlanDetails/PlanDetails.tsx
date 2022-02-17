@@ -2,7 +2,6 @@ import React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import { CircularProgress } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Category, Note } from '../../types/uniekModels';
@@ -15,7 +14,7 @@ const T: { [key: string]: string } = {
   subCategoriesSectionTitle: 'Subjects within:',
 };
 
-interface PlanDetailsProps {
+export interface PlanDetailsProps {
   categories: Category[] | null
   notes: Note[] | null
 }
@@ -41,15 +40,9 @@ const PlanDetails:React.FC<PlanDetailsProps> = ({ categories, notes }):JSX.Eleme
     return 0;
   }
 
-  if (!categories || !notes) {
+  if (categories?.length === 0) {
     return (
-      <CircularProgress />
-    );
-  }
-
-  if (categories.length === 0) {
-    return (
-      <div>
+      <div className="plan-details">
         {T.categoriesEmpty}
       </div>
     );
@@ -58,8 +51,7 @@ const PlanDetails:React.FC<PlanDetailsProps> = ({ categories, notes }):JSX.Eleme
   return (
     <div className="plan-details">
       <h2>{T.categoriesTitle}</h2>
-      {categories
-        .sort(compareCategories)
+      {categories?.sort(compareCategories)
         .filter((category:Category) => !category.parentNoteCategoryId)
         .map((category:Category) => (
           <Accordion key={`category-${category.id}`}>
@@ -73,8 +65,7 @@ const PlanDetails:React.FC<PlanDetailsProps> = ({ categories, notes }):JSX.Eleme
             <AccordionDetails>
               <h4>{T.notesSectionTitle}</h4>
               <ul>
-                {notes
-                  .sort(compareNotes)
+                {notes?.sort(compareNotes)
                   .filter((note:Note) => note.categoryId === category.id)
                   .map((note:Note) => <li key={`note-${note.id}`}>{note.content}</li>)}
               </ul>
@@ -99,8 +90,7 @@ const PlanDetails:React.FC<PlanDetailsProps> = ({ categories, notes }):JSX.Eleme
                     <AccordionDetails>
                       <h4>{T.notesSectionTitle}</h4>
                       <ul>
-                        {notes
-                          .sort(compareNotes)
+                        {notes?.sort(compareNotes)
                           .filter((note:Note) => note.categoryId === subCategory.id)
                           .map((note:Note) => <li key={`note-${note.id}`}>{note.content}</li>)}
                       </ul>

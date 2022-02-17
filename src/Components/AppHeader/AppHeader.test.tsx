@@ -1,10 +1,10 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
-import UniekApp from './UniekApp';
+import AppHeader from './AppHeader';
 
-describe('the app layout component', () => {
+describe('the header component', () => {
   it('renders the component', () => {
-    const wrapper:ShallowWrapper = shallow(<UniekApp />);
+    const wrapper:ShallowWrapper = shallow(<AppHeader />);
     expect(wrapper).toMatchSnapshot();
   });
 });
