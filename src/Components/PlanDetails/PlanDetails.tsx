@@ -11,6 +11,8 @@ import './PlanDetails.css';
 const T: { [key: string]: string } = {
   categoriesTitle: 'Your subjects:',
   categoriesEmpty: 'Your subjects will be displayed here, once you have added them to your plan.',
+  notesSectionTitle: 'Notes:',
+  subCategoriesSectionTitle: 'Subjects within:',
 };
 
 interface PlanDetailsProps {
@@ -19,6 +21,26 @@ interface PlanDetailsProps {
 }
 
 const PlanDetails:React.FC<PlanDetailsProps> = ({ categories, notes }):JSX.Element => {
+  function compareCategories(a:Category, b:Category):number {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  }
+
+  function compareNotes(a:Note, b:Note):number {
+    if (a.dateCreated < b.dateCreated) {
+      return -1;
+    }
+    if (a.dateCreated > b.dateCreated) {
+      return 1;
+    }
+    return 0;
+  }
+
   if (!categories || !notes) {
     return (
       <CircularProgress />
@@ -36,45 +58,58 @@ const PlanDetails:React.FC<PlanDetailsProps> = ({ categories, notes }):JSX.Eleme
   return (
     <div className="plan-details">
       <h2>{T.categoriesTitle}</h2>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography>Accordion 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>Accordion 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion disabled>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography>Disabled Accordion</Typography>
-        </AccordionSummary>
-      </Accordion>
+      {categories
+        .sort(compareCategories)
+        .filter((category:Category) => !category.parentNoteCategoryId)
+        .map((category:Category) => (
+          <Accordion key={`category-${category.id}`}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`panel1-${category.id}-content`}
+              id={`panel1-${category.id}-header`}
+            >
+              <Typography>{category.name}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <h4>{T.notesSectionTitle}</h4>
+              <ul>
+                {notes
+                  .sort(compareNotes)
+                  .filter((note:Note) => note.categoryId === category.id)
+                  .map((note:Note) => <li key={`note-${note.id}`}>{note.content}</li>)}
+              </ul>
+              <h4>{T.subCategoriesSectionTitle}</h4>
+              {categories
+                .sort(compareCategories)
+                .filter((subCategory:Category) => subCategory.parentNoteCategoryId === category.id)
+                .map((subCategory:Category) => (
+                  <Accordion
+                    sx={{
+                      backgroundColor: '#f1f1f1',
+                    }}
+                    key={`category-${subCategory.id}`}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls={`panel1-${subCategory.id}-content`}
+                      id={`panel1-${subCategory.id}-header`}
+                    >
+                      <Typography>{subCategory.name}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <h4>{T.notesSectionTitle}</h4>
+                      <ul>
+                        {notes
+                          .sort(compareNotes)
+                          .filter((note:Note) => note.categoryId === subCategory.id)
+                          .map((note:Note) => <li key={`note-${note.id}`}>{note.content}</li>)}
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+                ))}
+            </AccordionDetails>
+          </Accordion>
+        ))}
     </div>
   );
 };

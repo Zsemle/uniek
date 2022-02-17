@@ -19,6 +19,13 @@ const PlanPage:React.FC = ():JSX.Element => {
   const [categories, setCategories] = useState<Category[] | null>(null);
   const [error, setError] = useState<Error | AxiosError |null>(null);
 
+  const filteredCategories:Category[] = categories ? categories.filter(
+    (category:Category) => !category.isArchived,
+  ).filter(
+    (category:Category) => category.groupPlanId === plan?.id,
+  )
+    : [];
+
   useEffect(() => {
     setLoading(true);
     Promise.all([
@@ -64,7 +71,7 @@ const PlanPage:React.FC = ():JSX.Element => {
       </div>
       <PlanDetails
         notes={notes}
-        categories={categories}
+        categories={filteredCategories}
       />
     </div>
   );
